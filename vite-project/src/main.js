@@ -2,10 +2,12 @@ import './assets/main.css'
 
 import { createApp } from 'vue'
 import App from './App.vue'
-import router from './router'
+
+import loading from './components/icons/loading.vue'
+createApp(loading).mount('#loading');
 
 const app = createApp(App)
 
-app.use(router)
+
 
 app.mount('#app')
