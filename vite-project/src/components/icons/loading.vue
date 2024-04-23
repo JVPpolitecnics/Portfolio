@@ -1,11 +1,27 @@
 <template>
     <div>
-        <svg height="1000px" width="1000px" xmlns="http://www.w3.org/2000/svg">
-            <text  stroke="#000" stroke-width="0.8" fill="#000" x="50" y="115" class="heavy">Jack Vickery Pérez</text>
-        </svg>
+        
         <svg height="800px" width="800px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 259.104 259.104" xml:space="preserve">
-            <g stroke="#000" stroke-width="0.8" fill="#000">
+
+            <defs>
+                <linearGradient id="fillGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#28104E;" />
+                    <stop offset="33%" style="stop-color:#9754CB;" />
+                    <stop offset="100%" style="stop-color:#DEACF5;" />
+                </linearGradient>
+            </defs>
+        
+            <!-- Define a linear gradient for the stroke -->
+            <defs>
+                <linearGradient id="strokeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#28104E;" />
+                    <stop offset="33%" style="stop-color:#9754CB;" />
+                    <stop offset="100%" style="stop-color:#DEACF5;" />
+                </linearGradient>
+            </defs>
+
+            <g stroke="url(#strokeGradient)" stroke-width="3.5" fill="url(#fillGradient)">
                 <g>
                     <g>
                         <path d="M256.468,2.637c-1.907-1.907-4.575-2.855-7.25-2.593L228.027,2.14c-33.604,3.324-65.259,18.304-89.135,42.18
@@ -44,14 +60,18 @@ export default {
 }
 </script>
 <style scoped>
-.heavy {
-    
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #14151F;
 }
 
-
 svg {
-    height: 140px;
-    width: 200px;
+    height: 340px;
+    width: 400px;
 }
 
 svg text{
