@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container">
         
         <svg height="800px" width="800px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 259.104 259.104" xml:space="preserve">
@@ -69,26 +69,44 @@ export default {
     background-color: #14151F;
 }
 
-svg {
-    height: 340px;
-    width: 400px;
+
+
+@media only screen and (max-width: 430px) {
+    svg {
+    height: 10em;
+    width: 20em;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    svg {
+    height: 10em;
+    width: 20em;
+    }
+}
+
+@media only screen and (max-width: 1368px) {
+    svg {
+    height: 14em;
+    width: 24em;
+    }
 }
 
 svg text{
     height: 440px;
     width: 600px;
     fill-opacity: 0;
-    animation: draw 10s forwards;
+    animation: draw 6s forwards;
 }
 svg path {
     stroke-dashoffset: 980;
     stroke-dasharray: 980;
-    animation: draw 10s forwards;
+    animation: draw 6s forwards;
 }
 
 svg g {
     fill-opacity: 0;
-    animation: fill-in 2s 10s forwards;
+    animation: fill-in 2s 6s forwards;
 }
 
 @keyframes draw {

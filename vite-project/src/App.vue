@@ -1,25 +1,43 @@
 <template>
   <div>
-    <div v-if="isGame" ref="matterContainer" id="container"></div>
+    <loading v-if="isLoading"></loading>
+    <div v-show="isGame" ref="matterContainer" id="container"></div>
+    
+     
+ 
 
   </div>
 </template>
 
 <script>
 import Matter from 'matter-js';
+import loading from './components/icons/loading.vue';
 
 
 export default {
   mounted() {
+    this.showGame();
     this.setupMatter();
     window.addEventListener('resize', this.fitViewportToScene);
+
   },
   data() {
     return {
-      isGame: true,
+      isGame: false,
+      isLoading: true,
     }
   },
+  components: {
+    loading
+  },
   methods: {
+    showGame() {
+      setTimeout(() => {
+        this.isLoading = false;
+        this.isGame = true;
+        console.log("the game should be loaded:" + this.isGame);
+      }, 8000);
+    },
     setupMatter() {
       const Engine = Matter.Engine,
         Render = Matter.Render,
@@ -120,7 +138,7 @@ export default {
         if (rock.position.x > xPosition || rock.position.y < yPosition) {
           updated = false;
         };
-        if (mouseConstraint.mouse.button === -1 && (rock.position.y < yPosition -10) && !updated) {
+        if (mouseConstraint.mouse.button === -1 && (rock.position.y < yPosition - 10) && !updated) {
           rock = Bodies.polygon(xPosition, yPosition, 8, 20, rockOptions);
           World.add(engine.world, rock);
           elastic.bodyB = rock;
@@ -161,14 +179,18 @@ export default {
 </script>
 
 <style scoped>
- * {
-    position: absolute;
-    top: 0;
-    left: 0;
-    }
+#container {
+  z-index: 10;
+}
 
-    body {
-      margin: 0;
-      padding: 0;
-    }
+* {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
 </style>
