@@ -2,7 +2,7 @@
   <div>
     <loading v-if="isLoading"></loading>
     <div v-show="isGame" ref="matterContainer" id="container"></div>
-    
+    <rocket v-if="!isGame && !isLoading"> </rocket>
      
  
 
@@ -12,7 +12,7 @@
 <script>
 import Matter from 'matter-js';
 import loading from './components/icons/loading.vue';
-
+import rocket from './components/rocket.vue'
 
 export default {
   mounted() {
@@ -28,7 +28,8 @@ export default {
     }
   },
   components: {
-    loading
+    loading,
+    rocket,
   },
   methods: {
     showGame() {
