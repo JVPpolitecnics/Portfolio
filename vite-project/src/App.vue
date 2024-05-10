@@ -1,10 +1,16 @@
 <template>
   <div>
     <loading v-if="isLoading"></loading>
-    <div v-show="isGame" ref="matterContainer" id="container"></div>
+    <div id="outsideContainer" :style="{ position: 'relative', zIndex: 10, height:  height + 'px', width: width  + 'px' }">
+      <h1 id="buttonCV" class="jockey">CV</h1>
+      <h1 id="buttonStudies" class="jockey">Studies</h1>
+      <h1 id="buttonProjects" class="jockey">Projects</h1>
+      <h1 id="buttonHobbies" class="jockey">Hobbies</h1>
+      <div v-show="isGame" ref="matterContainer" id="container" :style="{ position: 'relative', zIndex: 10, height:  height + 'px', width: width  + 'px' }"></div>
+    </div>
     <rocket v-if="!isGame && !isLoading"> </rocket>
-     
- 
+
+
 
   </div>
 </template>
@@ -15,7 +21,11 @@ import loading from './components/icons/loading.vue';
 import rocket from './components/rocket.vue'
 
 export default {
+  created() {
+
+  },
   mounted() {
+    this.handleScreenSize();
     this.showGame();
     this.setupMatter();
     window.addEventListener('resize', this.fitViewportToScene);
@@ -25,6 +35,9 @@ export default {
     return {
       isGame: false,
       isLoading: true,
+      screenWidth: window.innerWidth,
+      height: null,
+      width: null
     }
   },
   components: {
@@ -39,6 +52,25 @@ export default {
         console.log("the game should be loaded:" + this.isGame);
       }, 8000);
     },
+    handleScreenSize() {
+      if (this.screenWidth > 1200) {
+        this.width = 1000;
+        this.height = 900;
+      }
+      else if (this.screenWidth > 992 && this.screenWidth <= 1200) {
+        this.width = 1300;
+        this.height = 700;
+      } else if (this.screenWidth > 768 && this.screenWidth <= 992) {
+        this.width = 800;
+        this.height = 700;
+      } else if (this.screenWidth > 576 && this.screenWidth <= 768) {
+        this.width = 600;
+        this.height = 700;
+      } else if (this.screenWidth <= 576) {
+        this.width = 430;
+        this.height = 900;
+      }
+    },
     setupMatter() {
       const Engine = Matter.Engine,
         Render = Matter.Render,
@@ -50,8 +82,8 @@ export default {
         Mouse = Matter.Mouse,
         World = Matter.World,
         Bodies = Matter.Bodies;
-      let xPosition = 371;
-      let yPosition = 451;
+      let xPosition = 300;
+      let yPosition = 450;
       // Create engine
       const engine = Engine.create();
       const world = engine.world;
@@ -60,22 +92,17 @@ export default {
       const render = Render.create({
         element: this.$refs.matterContainer,
         engine: engine,
+
         options: {
-          width: window.innerWidth,
-          height: window.innerHeight,
+          width: this.width, // change width
+          height: this.height, // change height
           wireframes: false
         }
       });
 
-      function fitViewportToScene() {
-        Render.lookAt(render, {
-          min: { x: 0, y: 0 },
-          max: { x: window.innerWidth, y: window.innerHeight }
-        });
-      }
 
-      // Call fitViewportToScene initially and on window resize
-      fitViewportToScene();
+
+
 
 
       Render.run(render);
@@ -103,9 +130,10 @@ export default {
       };
 
 
-      const circle1 = Bodies.circle(100, 60, 40, { isStatic: true, originalColor: '#000', collisionColor: createGradient('#28104E', '#9754CB', '#DEACF5') });
-      const circle2 = Bodies.circle(400, 50, 40, { isStatic: true, originalColor: '#000', collisionColor: createGradient('#28104E', '#9754CB', '#DEACF5') });
-      const circle3 = Bodies.circle(700, 50, 40, { isStatic: true, originalColor: '#000', collisionColor: createGradient('#28104E', '#9754CB', '#DEACF5') });
+      const circle1 = Bodies.circle(130, 120, 50, { isStatic: true, originalColor: '#000', collisionColor: createGradient('#28104E', '#9754CB', '#DEACF5') });
+      const circle2 = Bodies.circle(250, 100, 50, { isStatic: true, originalColor: '#000', collisionColor: createGradient('#28104E', '#9754CB', '#DEACF5') });
+      const circle3 = Bodies.circle(390, 100, 50, { isStatic: true, originalColor: '#000', collisionColor: createGradient('#28104E', '#9754CB', '#DEACF5') });
+      const circle4 = Bodies.circle(510, 120, 50, { isStatic: true, originalColor: '#000', collisionColor: createGradient('#28104E', '#9754CB', '#DEACF5') });
 
       Events.on(engine, 'collisionStart', (event) => {
         const pairs = event.pairs;
@@ -132,7 +160,7 @@ export default {
 
         });
       });
-      World.add(engine.world, [rock, elastic, circle1, circle2, circle3]);
+      World.add(engine.world, [rock, elastic, circle1, circle2, circle3, circle4]);
 
       let updated = false;
       Events.on(engine, 'afterUpdate', function () {
@@ -174,14 +202,76 @@ export default {
       this.engine = engine;
       this.runner = runner;
       this.render = render;
+    },
+    fitViewportToScene() {
+      const containerWidth = this.$refs.matterContainer.offsetWidth;
+      const containerHeight = this.$refs.matterContainer.offsetHeight;
+
+      // Update the size of the rendering area
+      Render.setPixelRatio(this.render, window.devicePixelRatio);
+      Render.canvasSize(this.render, containerWidth, containerHeight);
+      Render.lookAt(this.render, {
+        min: { x: 0, y: 0 },
+        max: { x: containerWidth, y: containerHeight }
+      });
+      // Scale up elements based on the container size
+      const scale = Math.min(containerWidth / 1000, containerHeight / 800);
+      Matter.Composite.allBodies(this.engine.world).forEach(body => {
+        if (body.render && body.render.sprite) {
+          Matter.Body.scale(body, scale, scale);
+          body.render.sprite.xScale *= scale;
+          body.render.sprite.yScale *= scale;
+        }
+      });
+
     }
+
   }
 };
 </script>
 
 <style scoped>
+@font-face {
+  font-family: 'Jockey';
+  src: url('assets/JockeyOne-Regular.ttf') format('ttf'), /* Modern Browsers */
+       url('assets/JockeyOne-Regular.ttf') format('ttf');   /* Legacy Browsers */
+  /* Optionally, you can specify font-weight and font-style */
+  font-weight: normal;
+  font-style: normal;
+}
 #container {
+  position: relative;
   z-index: 10;
+ 
+}
+.jockey{
+  font-family: 'Jockey', sans-serif;
+  font-weight: 600;
+  color: #EBEBD3;
+}
+#buttonCV {
+  position: absolute;
+  z-index: 11;
+  top: 10%;
+    left: 14%;
+}
+#buttonStudies {
+  position: absolute;
+  z-index: 11;
+  top: 8%;
+    left: 25.5%;
+}
+#buttonProjects {
+  position: absolute;
+  z-index: 11;
+  top: 8%;
+    left: 43%;
+}
+#buttonHobbies {
+  position: absolute;
+  z-index: 11;
+  top: 10%;
+    left: 58%;
 }
 
 * {
