@@ -1,14 +1,26 @@
 <template>
   <div>
     <loading v-if="isLoading"></loading>
-    <div id="outsideContainer" :style="{ position: 'relative', zIndex: 10, height:  height + 'px', width: width  + 'px' }">
-      <h1 id="buttonCV" class="jockey">CV</h1>
-      <h1 id="buttonStudies" class="jockey">Studies</h1>
-      <h1 id="buttonProjects" class="jockey">Projects</h1>
-      <h1 id="buttonHobbies" class="jockey">Hobbies</h1>
-      <div v-show="isGame" ref="matterContainer" id="container" :style="{ position: 'relative', zIndex: 10, height:  height + 'px', width: width  + 'px' }"></div>
+
+    <div v-show="isGame">
+      <h5 id="title" class="jockey">Jack Vickery Pérez the Web Developper</h5>
+
+
+      <div id="outsideContainer"
+        :style="{ position: 'relative', zIndex: 10, height: height + 'px', width: width + 'px' }">
+        <h1 id="buttonCV" class="jockey">CV</h1>
+        <h1 id="buttonStudies" class="jockey">Studies</h1>
+        <h1 id="buttonProjects" class="jockey">Projects</h1>
+        <h1 id="buttonHobbies" class="jockey">Hobbies</h1>
+      </div>
     </div>
-    <rocket v-if="!isGame && !isLoading"> </rocket>
+    <div v-show="isGame" ref="matterContainer" id="container"
+      :style="{ position: 'relative', zIndex: 10, height: height + 'px', width: width + 'px' }"></div>
+
+<div v-if="!isLoading && !isGame">
+<h1>Hello</h1>
+<bento></bento>
+</div>
 
 
 
@@ -19,6 +31,7 @@
 import Matter from 'matter-js';
 import loading from './components/icons/loading.vue';
 import rocket from './components/rocket.vue'
+import bento from './components/bento.vue'
 
 export default {
   created() {
@@ -43,6 +56,7 @@ export default {
   components: {
     loading,
     rocket,
+    bento,
   },
   methods: {
     showGame() {
@@ -233,45 +247,69 @@ export default {
 <style scoped>
 @font-face {
   font-family: 'Jockey';
-  src: url('assets/JockeyOne-Regular.ttf') format('ttf'), /* Modern Browsers */
-       url('assets/JockeyOne-Regular.ttf') format('ttf');   /* Legacy Browsers */
+  src: url('assets/JockeyOne-Regular.ttf') format('ttf'),
+    /* Modern Browsers */
+    url('assets/JockeyOne-Regular.ttf') format('ttf');
+  /* Legacy Browsers */
   /* Optionally, you can specify font-weight and font-style */
   font-weight: normal;
   font-style: normal;
 }
+
+#titleContainer {
+  position: relative;
+  top: 10%;
+}
+
+#title {
+  font-size: 96px;
+  position: absolute;
+  z-index: 11;
+  left: 97%;
+  top: 27%;
+  height: 10%;
+  width: 70%;
+  text-align: center;
+}
+
 #container {
   position: relative;
   z-index: 10;
- 
+
 }
-.jockey{
+
+.jockey {
   font-family: 'Jockey', sans-serif;
   font-weight: 600;
   color: #EBEBD3;
 }
+
 #buttonCV {
   position: absolute;
   z-index: 11;
   top: 10%;
-    left: 14%;
+  left: 14%;
 }
+
 #buttonStudies {
   position: absolute;
   z-index: 11;
   top: 8%;
-    left: 25.5%;
+  left: 25.5%;
 }
+
 #buttonProjects {
   position: absolute;
   z-index: 11;
   top: 8%;
-    left: 43%;
+  left: 43%;
 }
+
 #buttonHobbies {
   position: absolute;
   z-index: 11;
   top: 10%;
-    left: 58%;
+  left: 58%;
 }
 
 * {
