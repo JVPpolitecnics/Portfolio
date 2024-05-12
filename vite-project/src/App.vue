@@ -4,22 +4,22 @@
 
     <div v-show="isGame">
       <h5 id="title" class="jockey">Jack Vickery Pérez the Web Developper</h5>
-
-
-      <div id="outsideContainer"
-        :style="{ position: 'relative', zIndex: 10, height: height + 'px', width: width + 'px' }">
-        <h1 id="buttonCV" class="jockey">CV</h1>
+      <h1 id="buttonCV" class="jockey">CV</h1>
         <h1 id="buttonStudies" class="jockey">Studies</h1>
         <h1 id="buttonProjects" class="jockey">Projects</h1>
         <h1 id="buttonHobbies" class="jockey">Hobbies</h1>
+
+      <div id="outsideContainer"
+        :style="{ position: 'relative', zIndex: 10, height: height + 'px', width: width + 'px' }">
+       
       </div>
     </div>
     <div v-show="isGame" ref="matterContainer" id="container"
       :style="{ position: 'relative', zIndex: 10, height: height + 'px', width: width + 'px' }"></div>
 
 <div v-if="!isLoading && !isGame">
-<h1>Hello</h1>
-<bento></bento>
+<bento class="bentoDisplay" :imgPath="'/foodLink/Group.png'" :title="'Food Link'"></bento>
+<restaurant class="bentoDisplay"></restaurant>
 </div>
 
 
@@ -32,6 +32,7 @@ import Matter from 'matter-js';
 import loading from './components/icons/loading.vue';
 import rocket from './components/rocket.vue'
 import bento from './components/bento.vue'
+import restaurant from './components/restaurant.vue'
 
 export default {
   created() {
@@ -57,6 +58,7 @@ export default {
     loading,
     rocket,
     bento,
+    restaurant
   },
   methods: {
     showGame() {
@@ -254,6 +256,12 @@ export default {
   /* Optionally, you can specify font-weight and font-style */
   font-weight: normal;
   font-style: normal;
+}
+
+
+.bentoDisplay{
+  position: relative;
+  top: 10%;
 }
 
 #titleContainer {
