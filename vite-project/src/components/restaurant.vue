@@ -17,11 +17,14 @@
       <h4 class="jockey descriptionBoxText">Logo</h4>
 <img id="logo" src="/restaurant/restaurantLogo.png" alt="LOGO">
     </div>
-    <div class="bento__item" style="--rows: span 2;"><h4 class="jockey descriptionBoxText">Highlight</h4></div>
+    <div class="bento__item" style="--rows: span 2;"><h4 class="jockey descriptionBoxText">Highlight</h4>
+      <img id="imgHighlight" src="/restaurant/za.gif" alt="IMAGE"></div>
     <div class="bento__item" style="--columns: 1 / -1;"> 
+      <div class="stackContainer">
       <object class="tech" data="stack/javascript.svg" width="40" height="100"> </object>
-      <object class="tech" id="laravel" data="stack/html.svg" width="50" height="100"> </object>
+      <object class="tech"  data="stack/html.svg" width="50" height="100"> </object>
       <object class="tech" data="stack/css.svg" width="50" height="100"> </object>
+    </div>
     </div>
   </div>
 </main>
@@ -86,6 +89,9 @@ p {
   font-weight: 600;
   color: #EBEBD3;
 }
+.stackContainer{
+  margin-left: 10%;
+}
 
 .bento {
   min-block-size: 100vh;
@@ -131,6 +137,10 @@ p {
   margin-left: 20px;
   margin-top: 4px;
 }
+#imgHighlight{
+  position: relative;
+  margin-top: 10%;
+}
 #logo{
   margin-top: 15%;
   margin-left: 10%;
@@ -143,7 +153,7 @@ p {
     height: 28.7%;
     border-radius: 5%;
     width: auto;
-    margin-top: 185%;
+    margin-top: 25%;
     margin-left: 248px;
 }
 

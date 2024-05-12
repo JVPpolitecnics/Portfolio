@@ -5,22 +5,23 @@
     <div v-show="isGame">
       <h5 id="title" class="jockey">Jack Vickery Pérez the Web Developper</h5>
       <h1 id="buttonCV" class="jockey">CV</h1>
-        <h1 id="buttonStudies" class="jockey">Studies</h1>
-        <h1 id="buttonProjects" class="jockey">Projects</h1>
-        <h1 id="buttonHobbies" class="jockey">Hobbies</h1>
+      <h1 id="buttonStudies" class="jockey">Studies</h1>
+      <h1 id="buttonProjects" class="jockey">Projects</h1>
+      <h1 id="buttonHobbies" class="jockey">Hobbies</h1>
 
       <div id="outsideContainer"
         :style="{ position: 'relative', zIndex: 10, height: height + 'px', width: width + 'px' }">
-       
+
       </div>
     </div>
     <div v-show="isGame" ref="matterContainer" id="container"
       :style="{ position: 'relative', zIndex: 10, height: height + 'px', width: width + 'px' }"></div>
 
-<div v-if="!isLoading && !isGame">
-<bento class="bentoDisplay" :imgPath="'/foodLink/Group.png'" :title="'Food Link'"></bento>
-<restaurant class="bentoDisplay"></restaurant>
-</div>
+    <div v-if="!isLoading && !isGame && screenToShow && screenToShow == 5">
+      <h1>{{ screenToShow }}</h1>
+      <bento class="bentoDisplay" :imgPath="'/foodLink/Group.png'" :title="'Food Link'"></bento>
+      <restaurant class="bentoDisplay"></restaurant>
+    </div>
 
 
 
@@ -51,7 +52,8 @@ export default {
       isLoading: true,
       screenWidth: window.innerWidth,
       height: null,
-      width: null
+      width: null,
+      screenToShow: null,
     }
   },
   components: {
@@ -167,6 +169,9 @@ export default {
             if (pair.bodyB.label === 'Circle Body') {
               pair.bodyB.render.fillStyle = pair.bodyB.collisionColor;
             }
+            if (!this.screenToShow) {
+              this.screenToShow = pair.bodyB.id
+            }
             setTimeout(() => {
               this.isGame = false;
             }, 1000);
@@ -259,7 +264,7 @@ export default {
 }
 
 
-.bentoDisplay{
+.bentoDisplay {
   position: relative;
   top: 10%;
 }
