@@ -152,10 +152,10 @@ p {
 }
 #mainImage{
   position: absolute;
-    height: 15%;
+    height: 28%;
     border-radius: 5%;
     width: auto;
-    margin-top: 25%;
+    margin-top: 15%;
     margin-left: 248px;
 }
 
