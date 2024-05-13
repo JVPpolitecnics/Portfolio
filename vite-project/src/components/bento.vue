@@ -6,7 +6,12 @@
       <span data-tilt>
         <img id="mainImage" :src="imgPath" alt="IMAGE">
         <div id="textBox">
-<p class="noto">This was a school project in which we were asked to design an application, functionning in a similar fashion to UberEats or Glovo, but putting in tough volunteer riders willing to commit some of their spare time, taking surplus food from rtestaurants to our users, people who struggle with access to a warm meal and find themselves living in the streets.</p>
+<p class="noto">This was a school project in which, alongside 3 other school collegues, we were asked to design an application,
+   functionning in a similar fashion to UberEats or Glovo, but putting in tough volunteer riders
+    willing to commit some of their spare time, taking surplus food from rtestaurants to our users, 
+    people who struggle with access to a warm meal and find themselves living in the streets. 
+    I focused mainly in Vue.js with API calls, whilst I also dipped my fingers in designing some of the API's with Laravel.
+     I would then go and further develop my Laravel skills in other personal projects.</p>
         </div>
       </span>
     
@@ -50,7 +55,7 @@
 }
 
 p {
-  margin-top: 45px;
+  margin-top: 5px;
   margin-left: 15px;
   margin-right: 15px;
 }
@@ -153,7 +158,7 @@ p {
   position: absolute;
   top: 99px;
     left: 270px;
-    height: 361px;
+    height: 371px;
     width: 350px;
     border-radius: 5%;
   background-color: #404040;

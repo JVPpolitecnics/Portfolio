@@ -21,6 +21,7 @@
       <h1>{{ screenToShow }}</h1>
       <bento class="bentoDisplay" :imgPath="'/foodLink/Group.png'" :title="'Food Link'"></bento>
       <restaurant class="bentoDisplay"></restaurant>
+      <game class="bentoDisplay"></game>
     </div>
 
 
@@ -34,6 +35,7 @@ import loading from './components/icons/loading.vue';
 import rocket from './components/rocket.vue'
 import bento from './components/bento.vue'
 import restaurant from './components/restaurant.vue'
+import game from './components/game.vue';
 
 export default {
   created() {
@@ -60,7 +62,8 @@ export default {
     loading,
     rocket,
     bento,
-    restaurant
+    restaurant,
+    game
   },
   methods: {
     showGame() {

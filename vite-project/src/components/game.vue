@@ -4,26 +4,28 @@
   <div class="bento__container" variant-3>
     <div class="bento__item" style="--rows: span 2; --columns: 1 / -1;">
       <span data-tilt>
-        <img id="mainImage" src="/restaurant/Restaurant.gif" alt="IMAGE">
+        <img id="mainImage" src="/game/game.gif" alt="IMAGE">
+        <img id="secondImage" src="/game/db.gif" alt="IMAGE">
         <div id="textBox">
-<p class="noto">Here I practiced vanilla JS web components, by creating an order and bill management system for an imaginary restaurant.</p>
+<p class="noto">This was a group project in which we were tasked with creating a web based gaming platform. I was in charge of creating the DB, setting up a PHP PDO, user control, rankings, whilst also designing the way we bridged the information between JS and PHP. I also created a game in the fashion of where is Waldo.</p>
         </div>
       </span>
     
-    <h1 class="jockey" id="mainTitle">ZA Order Management</h1>
+    <h1 class="jockey" id="mainTitle">Cientifics en joc</h1>
   </div>
     
     <div class="bento__item" style="--rows: span 2;">
       <h4 class="jockey descriptionBoxText">Logo</h4>
-<img id="logo" src="/restaurant/restaurantLogo.png" alt="LOGO">
+<img id="logo" src="/game/logoCientifiks.png" alt="LOGO">
     </div>
     <div class="bento__item" style="--rows: span 2;"><h4 class="jockey descriptionBoxText">Highlight</h4>
-      <img id="imgHighlight" src="/restaurant/za.gif" alt="IMAGE"></div>
+      <img id="imgHighlight" src="/game/gameHighlight.gif" alt="IMAGE"></div>
     <div class="bento__item" style="--columns: 1 / -1;"> 
       <div class="stackContainer">
       <object class="tech" data="stack/javascript.svg" width="40" height="100"> </object>
       <object class="tech"  data="stack/html.svg" width="50" height="100"> </object>
       <object class="tech" data="stack/css.svg" width="50" height="100"> </object>
+      <object id="php" data="stack/php.svg" width="120" height="100"> </object>
     </div>
     </div>
   </div>
@@ -53,7 +55,7 @@
 }
 
 p {
-  margin-top: 45px;
+  margin-top: 5px;
   margin-left: 15px;
   margin-right: 15px;
 }
@@ -90,7 +92,7 @@ p {
   color: #EBEBD3;
 }
 .stackContainer{
-  margin-left: 29%;
+  margin-left: 20%;
 }
 
 .bento {
@@ -103,7 +105,7 @@ p {
 
 .bento__container {
   display: grid;
-  grid-template-rows: 4fr 1fr 1fr 2fr 1fr 2fr;
+  grid-template-rows:  4fr 1fr 2fr 2fr 1fr 2fr;
   gap: 1.5ch;
   min-height: inherit;
   flex: 2 0 627px;
@@ -142,20 +144,30 @@ p {
     margin-top: 15.5%;
     margin-left: 4%;
     border-radius: 5%;
+    height: 55%;
 }
 #logo{
-  margin-top: 15%;
-  margin-left: 10%;
-  max-width: 80%;
-  max-height: 80%;
-  border-radius: 13%;
+  margin-top: 15.5%;
+    margin-left: 3%;
+    max-width: 92%;
+    max-height: 80%;
+    border-radius: 13%;
 }
 #mainImage{
   position: absolute;
-    height: 15%;
+    height: 12%;
     border-radius: 5%;
     width: auto;
-    margin-top: 25%;
+    margin-top: 15%;
+    margin-left: 248px;
+    margin-bottom: 2%;
+}
+#secondImage{
+  position: absolute;
+    height: 14%;
+    border-radius: 5%;
+    width: auto;
+    margin-top: 47%;
     margin-left: 248px;
 }
 
@@ -170,14 +182,15 @@ p {
   position: absolute;
     top: 99px;
     left: 35px;
-    height: 361px;
+    height: 377px;
     width: 210px;
     border-radius: 5%;
     background-color: #404040;
 }
-#laravel{
+#php{
   position: relative;
   top: 18px;
+  margin-left: 22px;
 }
 .tech{
   margin-left: 30px;
