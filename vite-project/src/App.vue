@@ -20,8 +20,8 @@
     <div v-if="!isLoading && !isGame && screenToShow && screenToShow == 5">
       <h1>{{ screenToShow }}</h1>
       <bento class="bentoDisplay" :imgPath="'/foodLink/Group.png'" :title="'Food Link'"></bento>
-      <restaurant class="bentoDisplay"></restaurant>
-      <game class="bentoDisplay"></game>
+      <!-- <restaurant class="bentoDisplay"></restaurant> -->
+      <!-- <game class="bentoDisplay"></game> -->
     </div>
 
 
@@ -267,10 +267,7 @@ export default {
 }
 
 
-.bentoDisplay {
-  position: relative;
-  top: 10%;
-}
+
 
 #titleContainer {
   position: relative;
