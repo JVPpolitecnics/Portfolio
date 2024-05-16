@@ -20,9 +20,10 @@
     
     <div class="bento__item" style="--rows: span 2;">
       <h4 class="jockey descriptionBoxText">Logo</h4>
+      
 <img id="logo" src="/foodLink/FoodLinkLOGO.png" alt="LOGO">
     </div>
-    <div class="bento__item" style="--rows: span 2;"><h4 class="jockey descriptionBoxText">Highlight</h4></div>
+    <div class="bento__item" style="--rows: span 2;"><button type="button" class="btn">Base class</button><h4 class="jockey descriptionBoxText">Highlight</h4></div>
     <div class="bento__item" style="--columns: 1 / -1;"> 
       <object class="tech" data="stack/vue.svg" width="100" height="100"> </object>
       <object class="tech" id="laravel" data="stack/laravel.svg" width="120" height="100"> </object>
