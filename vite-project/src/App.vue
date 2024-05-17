@@ -17,9 +17,14 @@
     <div v-show="isGame" ref="matterContainer" id="container"
       :style="{ position: 'relative', zIndex: 10, height: height + 'px', width: width + 'px' }"></div>
 
-    <div v-if="!isLoading && !isGame && screenToShow && screenToShow == 5">
+      <div v-if="!isLoading && !isGame && screenToShow && screenToShow == 5">
       <h1>{{ screenToShow }}</h1>
-      <bento class="bentoDisplay" :imgPath="'/foodLink/Group.png'" :title="'Food Link'"></bento>
+      
+          <bento class="col-12 full" :imgPath="'/foodLink/Group.png'" :title="'Food Link'"></bento>
+        
+
+
+
       <!-- <restaurant class="bentoDisplay"></restaurant> -->
       <!-- <game class="bentoDisplay"></game> -->
     </div>
@@ -266,7 +271,9 @@ export default {
   font-style: normal;
 }
 
-
+.full{
+  width: 100vw;
+}
 
 
 #titleContainer {
