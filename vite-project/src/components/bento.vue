@@ -1,28 +1,89 @@
 <template>
-  <div v-if="imgPath && title">
-    <div class="container text-center">
-  <div class="row">
-    <div class="col-2">
-      Column
-    </div>
-    <div class="col-8 bento">
-      <div class="col-6">
+  <div v-if="imgPath && title && imgLogo && detail && text">
+    <div class="container">
+      <h1 class="p-4 jockey">{{ title }}</h1>
+
+      <!-- Top full-width block -->
+      <div class="p-4 row">
+        <div class="p-2 col-md-6 bento col-xs-12">
+          <img class="col-md-12 col-xs-12 p-4 img-fluid round" :src="imgPath" alt="IMAGE">
+        </div>
+        <div class="col-md-6 bento">
+          <div class="row p-2">
+            <div>
+              <div class="row">
+                <p class="p-4 noto">{{ text }}</p>
+
+              </div>
+              <div class="container">
+                <div class="row">
+                  <div class="col-4">
+                    <object data="stack/javascript.svg" class="img-fluid"></object>
+                  </div>
+                  <div class="col-4">
+                    <object data="stack/html.svg" class="img-fluid"></object>
+                  </div>
+                  <div class="col-4">
+                    <object data="stack/css.svg" class="img-fluid"></object>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-4">
+                    <object data="stack/php.svg" class="img-fluid"></object>
+                  </div>
+                  <div class="col-4">
+                    <object data="stack/vue.svg" class="img-fluid"></object>
+                  </div>
+                  <div class="col-4">
+                    <object data="stack/laravel.svg" class="img-fluid"></object>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-4">
+                    <object data="stack/mysql.svg" class="img-fluid mt-3"></object>
+                  </div>
+                  <div class="col-4">
+                    <object data="stack/spring.svg" class="img-fluid"></object>
+                  </div>
+                  <div class="col-4">
+                    <object data="stack/kafka.svg" class="img-fluid"></object>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Two half-width blocks -->
+      <div class="row">
+        <div class="col-md-12 ">
+          <div class="row">
+
+            <img class="col-6 p-5 bento img-fluid round" :src="imgLogo" alt="LOGO">
+            <img class="col-6  p-5 bento img-fluid round" :src="detail" alt="IMAGE">
+
+          </div>
+        </div>
 
       </div>
-      <div id="textBox" class="col-6">
-<p class="noto">This was a school project in which, alongside 3 other school collegues, we were asked to design an application,
-   functionning in a similar fashion to UberEats or Glovo, but putting in tough volunteer riders
-    willing to commit some of their spare time, taking surplus food from rtestaurants to our users, 
-    people who struggle with access to a warm meal and find themselves living in the streets. 
-    I focused mainly in Vue.js with API calls, whilst I also dipped my fingers in designing some of the API's with Laravel.
-     I would then go and further develop my Laravel skills in other personal projects.</p>
+      <!-- Bottom full-width block -->
+      <div class="row">
+        <div class="col-12 bento">
+
+
+          <div class="row">
+
+          </div>
+
+
+
         </div>
+      </div>
     </div>
-    <div class="col-2">
-      Column
-    </div>
-  </div>
-</div>
   </div>
 </template>
 <script>
@@ -37,7 +98,10 @@ export default {
   },
   props: {
     imgPath: String,
-    title: String
+    title: String,
+    imgLogo: String,
+    detail: String,
+    text: String
   }
 }
 </script>
@@ -92,6 +156,18 @@ p {
 .bento {
   background-color: #1E1E1E;
   border-radius: 5%;
+
+
+}
+
+.left-margin {
+  margin-right: 10px;
+  /* Right margin for the left block */
+}
+
+.right-margin {
+  margin-left: 10px;
+  /* Left margin for the right block */
 }
 
 .bento__container {
@@ -124,16 +200,17 @@ p {
   margin-top: 4px;
 }
 
-#logo {
-  margin-top: 15%;
-  margin-left: 10%;
-  max-width: 80%;
-  max-height: 80%;
+.round {
+  border-radius: 15%;
 }
 
+
 #mainImage {
-  position: absolute;
-  margin: 20px
+
+  height: 68%;
+  border-radius: 5%;
+  width: auto;
+
 }
 
 #mainTitle {
@@ -145,8 +222,10 @@ p {
 }
 
 #textBox {
-  
+
   background-color: #404040;
+  border-radius: 6.5%;
+
 }
 
 #laravel {
