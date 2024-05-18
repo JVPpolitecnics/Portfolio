@@ -19,11 +19,14 @@
 
       <div v-if="!isLoading && !isGame && screenToShow && screenToShow == 5">
       <h1>{{ screenToShow }}</h1>
-      <div class="row">
-        
-      </div>
-          <bento class="col-12 full" :imgPath="'/restaurant/Restaurant.gif'" :imgLogo="'/restaurant/restaurantLogo.png'" :detail="'/restaurant/za.gif'" :title="'Restaurant Order Management System'" :text="'Here I practiced vanilla JS web components, by creating an order and bill management system for an imaginary restaurant.'"></bento>
-          <bento class="col-12 full" :imgPath="'/restaurant/Restaurant.gif'" :imgLogo="'/restaurant/restaurantLogo.png'" :detail="'/restaurant/za.gif'" :title="'Restaurant Order Management System'" :text="'Here I practiced vanilla JS web components, by creating an order and bill management system for an imaginary restaurant.'"></bento>
+     
+     <div class="bentoDisplay">
+          
+          <bento style="margin-bottom: 2%;" class="col-12 full" :imgPath="'/game/game.gif'" :imgLogo="'/game/logoCientifiks.png'" :detail="'/restaurant/za.gif'" :title="'Restaurant Order Management System'" :text="'Here I practiced vanilla JS web components, by creating an order and bill management system for an imaginary restaurant.'"></bento>
+          <!-- <bento style="margin-bottom: 2%;" class="col-12 full" :imgPath="'/restaurant/Restaurant.gif'" :imgLogo="'/restaurant/restaurantLogo.png'" :detail="'/restaurant/za.gif'" :title="'Restaurant Order Management System'" :text="'Here I practiced vanilla JS web components, by creating an order and bill management system for an imaginary restaurant.'"></bento> -->
+        </div>     
+
+           
         
 
 
@@ -278,7 +281,10 @@ export default {
   width: 100vw;
 }
 
-
+.bentoDisplay {
+  position: relative;
+  top: 10%;
+}
 #titleContainer {
   position: relative;
   top: 10%;
