@@ -1,8 +1,9 @@
 <template>
   <div>
-    <loading v-if="isLoading"></loading>
+    <vid v-if="!stopVideo" @play-game="handlePlayGame"></vid>
+    <loading v-if="isLoading && !isVideo && stopVideo"></loading>
 
-    <div v-show="isGame">
+    <div v-show="isGame && !isVideo">
       <h5 id="title" class="jockey">Jack Vickery Pérez the Web Developper</h5>
       <h1 id="buttonCV" class="jockey">CV</h1>
       <h1 id="buttonStudies" class="jockey">Studies</h1>
@@ -14,20 +15,24 @@
 
       </div>
     </div>
-    <div v-show="isGame" ref="matterContainer" id="container"
+    <div v-show="isGame && !isVideo" ref="matterContainer" id="container"
       :style="{ position: 'relative', zIndex: 10, height: height + 'px', width: width + 'px' }"></div>
 
-      <div v-if="!isLoading && !isGame && screenToShow && screenToShow == 5">
+    <div v-if="!isLoading && !isGame && screenToShow && screenToShow == 5">
       <h1>{{ screenToShow }}</h1>
-     
-     <div class="bentoDisplay">
-          
-          <bento style="margin-bottom: 2%;" class="col-12 full" :imgPath="'/game/game.gif'" :imgLogo="'/game/logoCientifiks.png'" :detail="'/restaurant/za.gif'" :title="'Restaurant Order Management System'" :text="'Here I practiced vanilla JS web components, by creating an order and bill management system for an imaginary restaurant.'"></bento>
-          <!-- <bento style="margin-bottom: 2%;" class="col-12 full" :imgPath="'/restaurant/Restaurant.gif'" :imgLogo="'/restaurant/restaurantLogo.png'" :detail="'/restaurant/za.gif'" :title="'Restaurant Order Management System'" :text="'Here I practiced vanilla JS web components, by creating an order and bill management system for an imaginary restaurant.'"></bento> -->
-        </div>     
+      <projects v-if="!particullarProject" class="col-12 full" @show-bento="handleParituclarProject"></projects>
+      <div v-if="particullarProject" class="bentoDisplay">
 
-           
-        
+        <bento style="margin-bottom: 2%;" class="col-12 full" :imgPath="'/restaurant/Restaurant.gif'"
+          :imgLogo="'/restaurant/restaurantLogo.png'" :detail="'/restaurant/za.gif'"
+          :title="'Restaurant Order Management System'"
+          :text="'Here I practiced vanilla JS web components, by creating an order and bill management system for an imaginary restaurant.'">
+        </bento>
+        <!-- <bento style="margin-bottom: 2%;" class="col-12 full" :imgPath="'/restaurant/Restaurant.gif'" :imgLogo="'/restaurant/restaurantLogo.png'" :detail="'/restaurant/za.gif'" :title="'Restaurant Order Management System'" :text="'Here I practiced vanilla JS web components, by creating an order and bill management system for an imaginary restaurant.'"></bento> -->
+      </div>
+
+
+
 
 
 
@@ -35,7 +40,11 @@
       <!-- <game class="bentoDisplay"></game> -->
     </div>
 
+    <div v-if="!isLoading && !isGame && screenToShow == 3">
 
+
+      <cv class="col-12 full  text-center"></cv>
+    </div>
 
   </div>
 </template>
@@ -47,6 +56,9 @@ import rocket from './components/rocket.vue'
 import bento from './components/bento.vue'
 import restaurant from './components/restaurant.vue'
 import game from './components/game.vue';
+import vid from './components/video.vue';
+import cv from './components/cv.vue'
+import projects from './components/projects.vue';
 
 export default {
   created() {
@@ -61,12 +73,15 @@ export default {
   },
   data() {
     return {
+      isVideo: true,
       isGame: false,
       isLoading: true,
       screenWidth: window.innerWidth,
       height: null,
       width: null,
+      stopVideo: null,
       screenToShow: null,
+      particullarProject: null
     }
   },
   components: {
@@ -74,9 +89,19 @@ export default {
     rocket,
     bento,
     restaurant,
-    game
+    game,
+    vid,
+    cv,
+    projects
   },
   methods: {
+    handleParituclarProject(projectId) {
+      this.particullarProject = projectId
+    },
+    handlePlayGame(play) {
+      this.isVideo = false;
+      this.stopVideo = play;
+    },
     showGame() {
       setTimeout(() => {
         this.isLoading = false;
@@ -277,7 +302,7 @@ export default {
   font-style: normal;
 }
 
-.full{
+.full {
   width: 100vw;
 }
 
@@ -285,6 +310,7 @@ export default {
   position: relative;
   top: 10%;
 }
+
 #titleContainer {
   position: relative;
   top: 10%;
