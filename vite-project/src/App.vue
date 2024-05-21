@@ -19,6 +19,15 @@
       :style="{ position: 'relative', zIndex: 10, height: height + 'px', width: width + 'px' }"></div>
 
     <div v-if="!isLoading && !isGame && screenToShow && screenToShow == 5">
+     <div class="row">
+<div class="col-md-10"></div>
+      <div class="col-md-2">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 8.99999L12 2L21 8.99999V21H3V8.99999Z" stroke="#EBEBD3" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+      </div>
+     </div>
+        
       <h1>{{ screenToShow }}</h1>
       <projects v-if="!particullarProject && particullarProject!=0" class="col-12 full" @show-bento="handleParituclarProject"></projects>
       <div v-if="particullarProject != null" class="bentoDisplay">
@@ -44,6 +53,12 @@
 
 
       <cv class="col-12 full  text-center"></cv>
+    </div> 
+    <div v-if="!isLoading && !isGame && screenToShow == 4">
+
+      <studies class="col-12 full  text-center"></studies>
+
+      
     </div>
 
   </div>
@@ -59,6 +74,7 @@ import game from './components/game.vue';
 import vid from './components/video.vue';
 import cv from './components/cv.vue'
 import projects from './components/projects.vue';
+import studies from './components/studies.vue';
 
 export default {
   created() {
@@ -98,7 +114,8 @@ export default {
     game,
     vid,
     cv,
-    projects
+    projects,
+    studies
   },
   methods: {
     handleBackButton(){
