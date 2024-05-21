@@ -20,13 +20,13 @@
 
     <div v-if="!isLoading && !isGame && screenToShow && screenToShow == 5">
       <h1>{{ screenToShow }}</h1>
-      <projects v-if="!particullarProject" class="col-12 full" @show-bento="handleParituclarProject"></projects>
-      <div v-if="particullarProject" class="bentoDisplay">
+      <projects v-if="!particullarProject && particullarProject!=0" class="col-12 full" @show-bento="handleParituclarProject"></projects>
+      <div v-if="particullarProject != null" class="bentoDisplay">
 
-        <bento style="margin-bottom: 2%;" class="col-12 full" :imgPath="'/restaurant/Restaurant.gif'"
-          :imgLogo="'/restaurant/restaurantLogo.png'" :detail="'/restaurant/za.gif'"
-          :title="'Restaurant Order Management System'"
-          :text="'Here I practiced vanilla JS web components, by creating an order and bill management system for an imaginary restaurant.'">
+        <bento style="margin-bottom: 2%;" class="col-12 full" :imgPath="mainImages[particullarProject]"
+          :imgLogo="logos[particullarProject]" :detail="highlightImg[particullarProject]"
+          :title="titles[particullarProject]"
+          :text="text[particullarProject]">
         </bento>
         <!-- <bento style="margin-bottom: 2%;" class="col-12 full" :imgPath="'/restaurant/Restaurant.gif'" :imgLogo="'/restaurant/restaurantLogo.png'" :detail="'/restaurant/za.gif'" :title="'Restaurant Order Management System'" :text="'Here I practiced vanilla JS web components, by creating an order and bill management system for an imaginary restaurant.'"></bento> -->
       </div>
@@ -81,7 +81,13 @@ export default {
       width: null,
       stopVideo: null,
       screenToShow: null,
-      particullarProject: null
+      particullarProject: null,
+      titles: ['Restaurant Order Management System', 'FoodLink', 'Videogame: Cientifiks en joc' ],
+      mainImages: ['/restaurant/Restaurant.gif', '/foodLink/Group.png', '/game/game.gif'],
+      logos: ['/restaurant/restaurantLogo.png', '/foodLink/FoodLinkLOGO.png', '/game/logoCientifiks.png'],
+      highlightImg: ['/restaurant/za.gif', 'null', '/game/gameHighlight.gif'],
+      text: ['Here I practiced vanilla JS web components, by creating an order and bill management system for an imaginary restaurant.', "This was a school project in which, alongside 3 other school collegues, we were asked to design an application, functionning in a similar fashion to UberEats or Glovo, but putting in tough volunteer riderswilling to commit some of their spare time, taking surplus food from rtestaurants to our users,  people who struggle with access to a warm meal and find themselves living in the streets.  I focused mainly in Vue.js with API calls, whilst I also dipped my fingers in designing some of the API's with Laravel. I would then go and further develop my Laravel skills in other personal projects.", "This was a group project in which we were tasked with creating a web based gaming platform. I was in charge of creating the DB, setting up a PHP PDO, user control, rankings, whilst also designing the way we bridged the information between JS and PHP. I also created a game in the fashion of where is Waldo."]
+
     }
   },
   components: {

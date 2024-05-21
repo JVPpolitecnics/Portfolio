@@ -23,14 +23,14 @@
                             <p>Some representative placeholder content for the first slide.</p>
                         </div>
                     </div>
-                    <div class="carousel-item"  @click="sendTo(2)">
+                    <div class="carousel-item"  @click="sendTo(0)">
                         <img src="/public/restaurant/restaurantLogo.png" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>ZA Restaurant Order Management</h5>
                             <p>Some representative placeholder content for the second slide.</p>
                         </div>
                     </div>
-                    <div class="carousel-item"  @click="sendTo(3)">
+                    <div class="carousel-item"  @click="sendTo(2)">
                         <img src="/public/game/logoCientifiks.png" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>Third slide label</h5>
