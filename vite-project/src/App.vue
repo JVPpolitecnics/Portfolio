@@ -26,7 +26,7 @@
         <bento style="margin-bottom: 2%;" class="col-12 full" :imgPath="mainImages[particullarProject]"
           :imgLogo="logos[particullarProject]" :detail="highlightImg[particullarProject]"
           :title="titles[particullarProject]"
-          :text="text[particullarProject]">
+          :text="text[particullarProject]" @go-back="handleBackButton">
         </bento>
         <!-- <bento style="margin-bottom: 2%;" class="col-12 full" :imgPath="'/restaurant/Restaurant.gif'" :imgLogo="'/restaurant/restaurantLogo.png'" :detail="'/restaurant/za.gif'" :title="'Restaurant Order Management System'" :text="'Here I practiced vanilla JS web components, by creating an order and bill management system for an imaginary restaurant.'"></bento> -->
       </div>
@@ -101,6 +101,9 @@ export default {
     projects
   },
   methods: {
+    handleBackButton(){
+      this.particullarProject = null;
+    },
     handleParituclarProject(projectId) {
       this.particullarProject = projectId
     },
