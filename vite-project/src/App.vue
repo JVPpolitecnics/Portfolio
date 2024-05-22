@@ -22,7 +22,7 @@
     </div>
 
     <div
-      v-if="!isLoading && !isGame && screenToShow && screenToShow == 5 && !particullarProject && particullarProject != 0">
+      v-if="!isLoading && !isGame && screenToShow && screenToShow == 'projects' && !particullarProject && particullarProject != 0">
 
       <div class="home" @click="handleHomeButton">
         <svg class="home" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -32,7 +32,7 @@
       </div>
       <projects class="col-12 full" @show-bento="handleParituclarProject"></projects>
     </div>
-    <div v-if="!isLoading && !isGame && screenToShow && screenToShow == 5" class="initial">
+    <div v-if="!isLoading && !isGame && screenToShow && screenToShow == 'projects'" class="initial">
 
 
 
@@ -62,12 +62,12 @@
       <!-- <game class="bentoDisplay"></game> -->
     </div>
 
-    <div v-if="!isLoading && !isGame && screenToShow == 3">
+    <div v-if="!isLoading && !isGame && screenToShow == 'cv'">
 
 
       <cv class="col-12 full  text-center"></cv>
     </div>
-    <div v-if="!isLoading && !isGame && screenToShow == 4">
+    <div v-if="!isLoading && !isGame && screenToShow == 'studies'">
 
       <studies class="col-12 full  text-center"></studies>
 
@@ -104,7 +104,7 @@ export default {
     return {
       isVideo: true,
       isGame: false,
-      isLoading: true,
+      isLoading: false,
       screenWidth: window.innerWidth,
       height: null,
       width: null,
@@ -231,10 +231,33 @@ export default {
       };
 
 
-      const circle1 = Bodies.circle(130, 120, 50, { isStatic: true, originalColor: '#000', collisionColor: createGradient('#28104E', '#9754CB', '#DEACF5') });
-      const circle2 = Bodies.circle(250, 100, 50, { isStatic: true, originalColor: '#000', collisionColor: createGradient('#28104E', '#9754CB', '#DEACF5') });
-      const circle3 = Bodies.circle(390, 100, 50, { isStatic: true, originalColor: '#000', collisionColor: createGradient('#28104E', '#9754CB', '#DEACF5') });
-      const circle4 = Bodies.circle(510, 120, 50, { isStatic: true, originalColor: '#000', collisionColor: createGradient('#28104E', '#9754CB', '#DEACF5') });
+      const circle1 = Bodies.circle(130, 120, 50, { 
+    isStatic: true, 
+    originalColor: '#000', 
+    collisionColor: createGradient('#28104E', '#9754CB', '#DEACF5'), 
+    customId: 'cv' // Adding custom ID here
+});
+
+const circle2 = Bodies.circle(250, 100, 50, { 
+    isStatic: true, 
+    originalColor: '#000', 
+    collisionColor: createGradient('#28104E', '#9754CB', '#DEACF5'), 
+    customId: 'studies' // Adding custom ID here
+});
+
+const circle3 = Bodies.circle(390, 100, 50, { 
+    isStatic: true, 
+    originalColor: '#000', 
+    collisionColor: createGradient('#28104E', '#9754CB', '#DEACF5'), 
+    customId: 'projects' // Adding custom ID here
+});
+
+const circle4 = Bodies.circle(510, 120, 50, { 
+    isStatic: true, 
+    originalColor: '#000', 
+    collisionColor: createGradient('#28104E', '#9754CB', '#DEACF5'), 
+    customId: 'me' // Adding custom ID here
+});
 
       Events.on(engine, 'collisionStart', (event) => {
         const pairs = event.pairs;
@@ -253,7 +276,9 @@ export default {
               pair.bodyB.render.fillStyle = pair.bodyB.collisionColor;
             }
             if (!this.screenToShow) {
-              this.screenToShow = pair.bodyB.id
+              this.screenToShow = pair.bodyB.customId || pair.bodyA.customId;
+              console.log("my screen:::" +this.screenToShow)
+              console.log("my screen A:::" +pair.bodyA.customId)
             }
             setTimeout(() => {
               this.isGame = false;
