@@ -1,30 +1,103 @@
 <template>
   <div>
+    <vid v-if="!stopVideo && isVideo" @play-game="handlePlayGame"></vid>
     <loading v-if="isLoading"></loading>
 
-    <div v-show="isGame">
+    <div v-show="isGame && !isVideo">
+<div class="info" @click="playVideo">
+  <svg fill="#EBEBD3" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+	 width="30px" height="30px" viewBox="0 0 416.979 416.979"
+	 xml:space="preserve">
+<g>
+	<path d="M356.004,61.156c-81.37-81.47-213.377-81.551-294.848-0.182c-81.47,81.371-81.552,213.379-0.181,294.85
+		c81.369,81.47,213.378,81.551,294.849,0.181C437.293,274.636,437.375,142.626,356.004,61.156z M237.6,340.786
+		c0,3.217-2.607,5.822-5.822,5.822h-46.576c-3.215,0-5.822-2.605-5.822-5.822V167.885c0-3.217,2.607-5.822,5.822-5.822h46.576
+		c3.215,0,5.822,2.604,5.822,5.822V340.786z M208.49,137.901c-18.618,0-33.766-15.146-33.766-33.765
+		c0-18.617,15.147-33.766,33.766-33.766c18.619,0,33.766,15.148,33.766,33.766C242.256,122.755,227.107,137.901,208.49,137.901z"/>
+</g>
+</svg>
+</div>
+
       <h5 id="title" class="jockey">Jack Vickery Pérez the Web Developper</h5>
+
+
+      <!-- <div id="outsideContainer"
+        :style="{ position: 'relative', zIndex: 10, height: height + 'px', width: width + 'px' }">
+
+      </div> -->
+    </div>
+    <div v-show="isGame && !isVideo" ref="matterContainer" id="container"
+      :style="{ position: 'absolute', zIndex: 10, height: height + 'px', width: width + 'px' }">
       <h1 id="buttonCV" class="jockey">CV</h1>
       <h1 id="buttonStudies" class="jockey">Studies</h1>
       <h1 id="buttonProjects" class="jockey">Projects</h1>
-      <h1 id="buttonHobbies" class="jockey">Hobbies</h1>
+      <h1 id="buttonHobbies" class="jockey">About me</h1>
+    </div>
 
-      <div id="outsideContainer"
-        :style="{ position: 'relative', zIndex: 10, height: height + 'px', width: width + 'px' }">
+    <div
+      v-if="!isLoading && !isGame && screenToShow && screenToShow == 'projects' && !particullarProject && particullarProject != 0">
 
+      <div class="home" @click="handleHomeButton">
+        <svg class="home" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 8.99999L12 2L21 8.99999V21H3V8.99999Z" stroke="#EBEBD3" stroke-width="1.5"
+            stroke-linecap="round" />
+        </svg>
+      </div>
+      <projects class="col-12 full" @show-bento="handleParituclarProject"></projects>
+    </div>
+    <div v-if="!isLoading && !isGame && screenToShow && screenToShow == 'projects'" class="initial">
+
+
+
+
+
+      <div v-if="particullarProject != null">
+        <div class="home" @click="handleHomeButton">
+          <svg class="home" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 8.99999L12 2L21 8.99999V21H3V8.99999Z" stroke="#EBEBD3" stroke-width="1.5"
+              stroke-linecap="round" />
+          </svg>
+        </div>
+
+        <bento class="full" style="margin-bottom: 2%;" :imgPath="mainImages[particullarProject]"
+          :imgLogo="logos[particullarProject]" :detail="highlightImg[particullarProject]"
+          :title="titles[particullarProject]" :text="text[particullarProject]" @go-back="handleBackButton">
+        </bento>
+        <!-- <bento style="margin-bottom: 2%;" class="col-12 full" :imgPath="'/restaurant/Restaurant.gif'" :imgLogo="'/restaurant/restaurantLogo.png'" :detail="'/restaurant/za.gif'" :title="'Restaurant Order Management System'" :text="'Here I practiced vanilla JS web components, by creating an order and bill management system for an imaginary restaurant.'"></bento> -->
+      </div>
+
+
+
+
+
+
+      <!-- <restaurant class="bentoDisplay"></restaurant> -->
+      <!-- <game class="bentoDisplay"></game> -->
+    </div>
+
+    <div v-if="!isLoading && !isGame && screenToShow == 'cv'">
+      <div class="home" @click="handleHomeButton">
+        <svg class="home" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 8.99999L12 2L21 8.99999V21H3V8.99999Z" stroke="#EBEBD3" stroke-width="1.5"
+            stroke-linecap="round" />
+        </svg>
+      </div>
+      <div  class="initial">
+        <cv class="col-12 full  text-center"></cv>
       </div>
     </div>
-    <div v-show="isGame" ref="matterContainer" id="container"
-      :style="{ position: 'relative', zIndex: 10, height: height + 'px', width: width + 'px' }"></div>
+    <div v-if="!isLoading && !isGame && screenToShow == 'studies'">
+      <div class="home" @click="handleHomeButton">
+        <svg class="home" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 8.99999L12 2L21 8.99999V21H3V8.99999Z" stroke="#EBEBD3" stroke-width="1.5"
+            stroke-linecap="round" />
+        </svg>
+      </div>
+      <div class="initial">
+        <studies class="col-12 full  text-center"></studies>
+      </div>
 
-    <div v-if="!isLoading && !isGame && screenToShow && screenToShow == 5">
-      <h1>{{ screenToShow }}</h1>
-      <bento class="bentoDisplay" :imgPath="'/foodLink/Group.png'" :title="'Food Link'"></bento>
-      <restaurant class="bentoDisplay"></restaurant>
-      <game class="bentoDisplay"></game>
     </div>
-
-
 
   </div>
 </template>
@@ -36,6 +109,10 @@ import rocket from './components/rocket.vue'
 import bento from './components/bento.vue'
 import restaurant from './components/restaurant.vue'
 import game from './components/game.vue';
+import vid from './components/video.vue';
+import cv from './components/cv.vue'
+import projects from './components/projects.vue';
+import studies from './components/studies.vue';
 
 export default {
   created() {
@@ -50,12 +127,21 @@ export default {
   },
   data() {
     return {
+      isVideo: false,
       isGame: false,
       isLoading: true,
       screenWidth: window.innerWidth,
       height: null,
       width: null,
+      stopVideo: null,
       screenToShow: null,
+      particullarProject: null,
+      titles: ['Restaurant Order Management System', 'FoodLink', 'Videogame: Cientifiks en joc'],
+      mainImages: ['/restaurant/Restaurant.gif', '/foodLink/Group.png', '/game/game.gif'],
+      logos: ['/restaurant/restaurantLogo.png', '/foodLink/FoodLinkLOGO.png', '/game/logoCientifiks.png'],
+      highlightImg: ['/restaurant/za.gif', 'null', '/game/gameHighlight.gif'],
+      text: ['Here I practiced vanilla JS web components, by creating an order and bill management system for an imaginary restaurant.', "This was a school project in which, alongside 3 other school collegues, we were asked to design an application, functionning in a similar fashion to UberEats or Glovo, but putting in tough volunteer riderswilling to commit some of their spare time, taking surplus food from rtestaurants to our users,  people who struggle with access to a warm meal and find themselves living in the streets.  I focused mainly in Vue.js with API calls, whilst I also dipped my fingers in designing some of the API's with Laravel. I would then go and further develop my Laravel skills in other personal projects.", "This was a group project in which we were tasked with creating a web based gaming platform. I was in charge of creating the DB, setting up a PHP PDO, user control, rankings, whilst also designing the way we bridged the information between JS and PHP. I also created a game in the fashion of where is Waldo."]
+
     }
   },
   components: {
@@ -63,9 +149,31 @@ export default {
     rocket,
     bento,
     restaurant,
-    game
+    game,
+    vid,
+    cv,
+    projects,
+    studies
   },
   methods: {
+    playVideo(){
+this.isVideo = true;
+    },
+    handleHomeButton() {
+      this.particullarProject = null;
+      this.isGame = true;
+      this.screenToShow = null;
+    },
+    handleBackButton() {
+      this.particullarProject = null;
+    },
+    handleParituclarProject(projectId) {
+      this.particullarProject = projectId
+    },
+    handlePlayGame(play) {
+      this.isVideo = false;
+      this.stopVideo = play;
+    },
     showGame() {
       setTimeout(() => {
         this.isLoading = false;
@@ -151,10 +259,33 @@ export default {
       };
 
 
-      const circle1 = Bodies.circle(130, 120, 50, { isStatic: true, originalColor: '#000', collisionColor: createGradient('#28104E', '#9754CB', '#DEACF5') });
-      const circle2 = Bodies.circle(250, 100, 50, { isStatic: true, originalColor: '#000', collisionColor: createGradient('#28104E', '#9754CB', '#DEACF5') });
-      const circle3 = Bodies.circle(390, 100, 50, { isStatic: true, originalColor: '#000', collisionColor: createGradient('#28104E', '#9754CB', '#DEACF5') });
-      const circle4 = Bodies.circle(510, 120, 50, { isStatic: true, originalColor: '#000', collisionColor: createGradient('#28104E', '#9754CB', '#DEACF5') });
+      const circle1 = Bodies.circle(130, 120, 50, {
+        isStatic: true,
+        originalColor: '#000',
+        collisionColor: '#5463E7',
+        customId: 'cv' // Adding custom ID here
+      });
+
+      const circle2 = Bodies.circle(250, 100, 50, {
+        isStatic: true,
+        originalColor: '#000',
+        collisionColor: '#5463E7',
+        customId: 'studies' // Adding custom ID here
+      });
+
+      const circle3 = Bodies.circle(390, 100, 50, {
+        isStatic: true,
+        originalColor: '#000',
+        collisionColor: '#5463E7',
+        customId: 'projects' // Adding custom ID here
+      });
+
+      const circle4 = Bodies.circle(510, 120, 50, {
+        isStatic: true,
+        originalColor: '#000',
+        collisionColor: '#5463E7',
+        customId: 'me' // Adding custom ID here
+      });
 
       Events.on(engine, 'collisionStart', (event) => {
         const pairs = event.pairs;
@@ -173,7 +304,9 @@ export default {
               pair.bodyB.render.fillStyle = pair.bodyB.collisionColor;
             }
             if (!this.screenToShow) {
-              this.screenToShow = pair.bodyB.id
+              this.screenToShow = pair.bodyB.customId || pair.bodyA.customId;
+              console.log("my screen:::" + this.screenToShow)
+              console.log("my screen A:::" + pair.bodyA.customId)
             }
             setTimeout(() => {
               this.isGame = false;
@@ -265,11 +398,36 @@ export default {
   font-weight: normal;
   font-style: normal;
 }
+.info{
+  position: absolute;
+    top: 3%;
+    left: 96%;
+    z-index: 22;
+}
+body {
+  width: 100vw;
+}
 
+.initial {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.full {
+  width: 100vw;
+}
 
 .bentoDisplay {
   position: relative;
   top: 10%;
+}
+
+.home {
+  position: absolute;
+  top: 15px;
+  left: 90%;
+
 }
 
 #titleContainer {
@@ -278,21 +436,17 @@ export default {
 }
 
 #title {
-  font-size: 96px;
+  font-size: 5.5rem;
   position: absolute;
   z-index: 11;
-  left: 97%;
+  left: 45%;
   top: 27%;
   height: 10%;
-  width: 70%;
+  width: 41%;
   text-align: center;
 }
 
-#container {
-  position: relative;
-  z-index: 10;
 
-}
 
 .jockey {
   font-family: 'Jockey', sans-serif;
@@ -328,7 +482,7 @@ export default {
   left: 58%;
 }
 
-* {
+#container {
   position: absolute;
   top: 0;
   left: 0;
@@ -337,5 +491,62 @@ export default {
 body {
   margin: 0;
   padding: 0;
+}
+
+@media (max-width: 1440px) {
+  #title {
+    font-size: 3.5rem;
+    top: 30%;
+    left: 60%;
+    width: 400px;
+  }
+}
+
+@media (max-width: 600px) {
+  #title {
+    font-size: 2.5rem;
+    top: 65%;
+    left: 16%;
+    width: 382px;
+
+  }
+
+  #container {
+    position: absolute;
+    top: -54px;
+    left: 97px;
+  }
+
+  #buttonCV {
+    writing-mode: vertical-rl;
+    position: absolute;
+    z-index: 11;
+    top: 29%;
+    left: 11%;
+  }
+
+  #buttonProjects {
+    writing-mode: vertical-rl;
+    position: absolute;
+    z-index: 11;
+    top: 21%;
+    left: 45%;
+  }
+
+  #buttonHobbies {
+    writing-mode: vertical-rl;
+    position: absolute;
+    z-index: 11;
+    top: 20%;
+    left: 61%;
+  }
+
+  #buttonStudies {
+    writing-mode: vertical-rl;
+    position: absolute;
+    z-index: 11;
+    top: 22%;
+    left: 27.5%;
+  }
 }
 </style>

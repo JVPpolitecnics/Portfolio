@@ -15,16 +15,12 @@
     
     <div class="bento__item" style="--rows: span 2;">
       <h4 class="jockey descriptionBoxText">Logo</h4>
-<img id="logo" src="/restaurant/restaurantLogo.png" alt="LOGO">
+
     </div>
     <div class="bento__item" style="--rows: span 2;"><h4 class="jockey descriptionBoxText">Highlight</h4>
       <img id="imgHighlight" src="/restaurant/za.gif" alt="IMAGE"></div>
     <div class="bento__item" style="--columns: 1 / -1;"> 
-      <div class="stackContainer">
-      <object class="tech" data="stack/javascript.svg" width="40" height="100"> </object>
-      <object class="tech"  data="stack/html.svg" width="50" height="100"> </object>
-      <object class="tech" data="stack/css.svg" width="50" height="100"> </object>
-    </div>
+     
     </div>
   </div>
 </main>
