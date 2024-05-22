@@ -139,9 +139,9 @@ export default {
       screenToShow: null,
       particullarProject: null,
       titles: ['Restaurant Order Management System', 'FoodLink', 'Videogame: Cientifiks en joc'],
-      mainImages: ['/Portfolio/public/restaurant/Restaurant.gif', '/Portfolio/public/foodLink/Group.png', '/Portfolio/public/game/game.gif'],
-      logos: ['/Portfolio/public/restaurant/restaurantLogo.png', '/Portfolio/public/foodLink/FoodLinkLOGO.png', '/Portfolio/public/game/logoCientifiks.png'],
-      highlightImg: ['/Portfolio/public/restaurant/za.gif', 'null', '/Portfolio/public/game/gameHighlight.gif'],
+      mainImages: ['/Portfolio/restaurant/Restaurant.gif', '/Portfolio/foodLink/Group.png', '/Portfolio/game/game.gif'],
+      logos: ['/Portfolio/restaurant/restaurantLogo.png', '/Portfolio/foodLink/FoodLinkLOGO.png', '/Portfolio/game/logoCientifiks.png'],
+      highlightImg: ['/Portfolio/restaurant/za.gif', 'null', '/Portfolio/game/gameHighlight.gif'],
       text: ['Here I practiced vanilla JS web components, by creating an order and bill management system for an imaginary restaurant.', "This was a school project in which, alongside 3 other school collegues, we were asked to design an application, functionning in a similar fashion to UberEats or Glovo, but putting in tough volunteer riderswilling to commit some of their spare time, taking surplus food from rtestaurants to our users,  people who struggle with access to a warm meal and find themselves living in the streets.  I focused mainly in Vue.js with API calls, whilst I also dipped my fingers in designing some of the API's with Laravel. I would then go and further develop my Laravel skills in other personal projects.", "This was a group project in which we were tasked with creating a web based gaming platform. I was in charge of creating the DB, setting up a PHP PDO, user control, rankings, whilst also designing the way we bridged the information between JS and PHP. I also created a game in the fashion of where is Waldo."]
 
     }
