@@ -405,11 +405,12 @@ body {
   padding: 0;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1440px) {
   #title {
-    font-size: 3rem;
+    font-size: 3.5rem;
     top: 25%;
-    left: 0%;
+    left: 85%;
+    width: 400px;
   }
 }
 </style>
