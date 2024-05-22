@@ -1,12 +1,16 @@
 <template>
     <div class="container mt-5">
-        <h1 class="jockey">Projects</h1>
+        <div class="row">
+            <div class="col-4"></div>
+            <h1 class="col-4 mb-5 text-center jockey">Projects</h1>
+            <div class="col-4"></div>
+        </div>
         <div class="row">
 
-            <div class="col-2">
+            <div class="col-3">
 
             </div>
-            <div id="carouselExampleCaptions" class="carousel slide col-8">
+            <div id="carouselExampleCaptions" class="carousel slide col-12 col-md-6">
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
                         aria-current="true" aria-label="Slide 1"></button>
@@ -16,21 +20,21 @@
                         aria-label="Slide 3"></button>
                 </div>
                 <div class="carousel-inner">
-                    <div class="carousel-item active"  @click="sendTo(1)">
+                    <div class="carousel-item active" @click="sendTo(1)">
                         <img src="/public/foodLink/FoodLinkLOGO.png" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>FoodLink</h5>
                             <p>Some representative placeholder content for the first slide.</p>
                         </div>
                     </div>
-                    <div class="carousel-item"  @click="sendTo(0)">
+                    <div class="carousel-item" @click="sendTo(0)">
                         <img src="/public/restaurant/restaurantLogo.png" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>ZA Restaurant Order Management</h5>
                             <p>Some representative placeholder content for the second slide.</p>
                         </div>
                     </div>
-                    <div class="carousel-item"  @click="sendTo(2)">
+                    <div class="carousel-item" @click="sendTo(2)">
                         <img src="/public/game/logoCientifiks.png" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>Third slide label</h5>
@@ -68,8 +72,8 @@ export default {
     components: {
     },
     methods: {
-        sendTo(id){
-            console.log("clicked item:: " +id);
+        sendTo(id) {
+            console.log("clicked item:: " + id);
             this.$emit('show-bento', id);
         }
     }
