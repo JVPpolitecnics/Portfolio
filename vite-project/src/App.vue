@@ -413,8 +413,8 @@ body {
 @media (max-width: 1440px) {
   #title {
     font-size: 3.5rem;
-    top: 25%;
-    left: 85%;
+    top: 30%;
+    left: 60%;
     width: 400px;
   }
 }
