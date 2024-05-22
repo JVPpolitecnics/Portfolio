@@ -1,12 +1,12 @@
 <template>
   <div>
-    <vid v-if="!stopVideo" @play-game="handlePlayGame" ></vid>
+    <vid v-if="!stopVideo" @play-game="handlePlayGame"></vid>
     <loading v-if="isLoading && !isVideo && stopVideo"></loading>
 
     <div v-show="isGame && !isVideo">
 
       <h5 id="title" class="jockey">Jack Vickery Pérez the Web Developper</h5>
-     
+
 
       <!-- <div id="outsideContainer"
         :style="{ position: 'relative', zIndex: 10, height: height + 'px', width: width + 'px' }">
@@ -18,23 +18,35 @@
       <h1 id="buttonCV" class="jockey">CV</h1>
       <h1 id="buttonStudies" class="jockey">Studies</h1>
       <h1 id="buttonProjects" class="jockey">Projects</h1>
-      <h1 id="buttonHobbies" class="jockey">About me</h1></div>
+      <h1 id="buttonHobbies" class="jockey">About me</h1>
+    </div>
 
-    <div v-if="!isLoading && !isGame && screenToShow && screenToShow == 5">
+    <div
+      v-if="!isLoading && !isGame && screenToShow && screenToShow == 5 && !particullarProject && particullarProject != 0">
 
-      <div class="home">
+      <div class="home" @click="handleHomeButton">
         <svg class="home" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M3 8.99999L12 2L21 8.99999V21H3V8.99999Z" stroke="#EBEBD3" stroke-width="1.5"
             stroke-linecap="round" />
         </svg>
       </div>
+      <projects class="col-12 full" @show-bento="handleParituclarProject"></projects>
+    </div>
+    <div v-if="!isLoading && !isGame && screenToShow && screenToShow == 5" class="initial">
 
-      <h1>{{ screenToShow }}</h1>
-      <projects v-if="!particullarProject && particullarProject != 0" class="col-12 full"
-        @show-bento="handleParituclarProject"></projects>
-      <div v-if="particullarProject != null" class="bentoDisplay">
 
-        <bento style="margin-bottom: 2%;" class="col-12 full" :imgPath="mainImages[particullarProject]"
+
+
+
+      <div v-if="particullarProject != null">
+        <div class="home"  @click="handleHomeButton">
+          <svg class="home" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 8.99999L12 2L21 8.99999V21H3V8.99999Z" stroke="#EBEBD3" stroke-width="1.5"
+              stroke-linecap="round" />
+          </svg>
+        </div>
+
+        <bento class="full" style="margin-bottom: 2%;" :imgPath="mainImages[particullarProject]"
           :imgLogo="logos[particullarProject]" :detail="highlightImg[particullarProject]"
           :title="titles[particullarProject]" :text="text[particullarProject]" @go-back="handleBackButton">
         </bento>
@@ -119,6 +131,11 @@ export default {
     studies
   },
   methods: {
+    handleHomeButton(){
+      this.particullarProject = null;
+      this.isGame = true;
+      this.screenToShow = null;
+    },
     handleBackButton() {
       this.particullarProject = null;
     },
@@ -328,9 +345,17 @@ export default {
   font-weight: normal;
   font-style: normal;
 }
-body{
-  width: 100vw; 
+
+body {
+  width: 100vw;
 }
+
+.initial {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 .full {
   width: 100vw;
 }
@@ -342,7 +367,7 @@ body{
 
 .home {
   position: absolute;
-  top: 0;
+  top: 15px;
   left: 90%;
 
 }
@@ -354,13 +379,13 @@ body{
 
 #title {
   font-size: 5.5rem;
-    position: absolute;
-    z-index: 11;
-    left: 45%;
-    top: 27%;
-    height: 10%;
-    width: 41%;
-    text-align: center;
+  position: absolute;
+  z-index: 11;
+  left: 45%;
+  top: 27%;
+  height: 10%;
+  width: 41%;
+  text-align: center;
 }
 
 
@@ -422,43 +447,48 @@ body {
 @media (max-width: 600px) {
   #title {
     font-size: 2.5rem;
-        top: 65%;
-        left: 16%;
-        width: 382px;
-    
+    top: 65%;
+    left: 16%;
+    width: 382px;
+
   }
+
   #container {
     position: absolute;
     top: -54px;
     left: 97px;
-}
-#buttonCV {
-  writing-mode: vertical-rl;
-  position: absolute;
-  z-index: 11;
-  top: 29%;
-  left: 11%;
-}
-#buttonProjects {
-  writing-mode: vertical-rl;
-  position: absolute;
-  z-index: 11;
-  top: 21%;
-  left: 45%;
-}
-#buttonHobbies {
-  writing-mode: vertical-rl;
-  position: absolute;
-  z-index: 11;
-  top: 20%;
-  left: 61%;
-}
-#buttonStudies {
-  writing-mode: vertical-rl;
-  position: absolute;
-  z-index: 11;
-  top: 22%;
-  left: 27.5%;
-}
+  }
+
+  #buttonCV {
+    writing-mode: vertical-rl;
+    position: absolute;
+    z-index: 11;
+    top: 29%;
+    left: 11%;
+  }
+
+  #buttonProjects {
+    writing-mode: vertical-rl;
+    position: absolute;
+    z-index: 11;
+    top: 21%;
+    left: 45%;
+  }
+
+  #buttonHobbies {
+    writing-mode: vertical-rl;
+    position: absolute;
+    z-index: 11;
+    top: 20%;
+    left: 61%;
+  }
+
+  #buttonStudies {
+    writing-mode: vertical-rl;
+    position: absolute;
+    z-index: 11;
+    top: 22%;
+    left: 27.5%;
+  }
 }
 </style>
