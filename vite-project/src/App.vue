@@ -4,6 +4,7 @@
     <loading v-if="isLoading && !isVideo && stopVideo"></loading>
 
     <div v-show="isGame && !isVideo">
+    
       <h5 id="title" class="jockey">Jack Vickery Pérez the Web Developper</h5>
       <h1 id="buttonCV" class="jockey">CV</h1>
       <h1 id="buttonStudies" class="jockey">Studies</h1>
@@ -343,7 +344,7 @@ export default {
 }
 
 #title {
-  font-size: 96px;
+  font-size: 5.5rem;
   position: absolute;
   z-index: 11;
   left: 97%;
@@ -402,5 +403,13 @@ export default {
 body {
   margin: 0;
   padding: 0;
+}
+
+@media (max-width: 992px) {
+  #title {
+    font-size: 3rem;
+    top: 25%;
+    left: 0%;
+  }
 }
 </style>
