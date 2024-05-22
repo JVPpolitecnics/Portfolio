@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vid v-if="!stopVideo" @play-game="handlePlayGame"></vid>
+    <vid v-if="!stopVideo" @play-game="handlePlayGame" ></vid>
     <loading v-if="isLoading && !isVideo && stopVideo"></loading>
 
     <div v-show="isGame && !isVideo">
@@ -18,7 +18,7 @@
       <h1 id="buttonCV" class="jockey">CV</h1>
       <h1 id="buttonStudies" class="jockey">Studies</h1>
       <h1 id="buttonProjects" class="jockey">Projects</h1>
-      <h1 id="buttonHobbies" class="jockey">Hobbies</h1></div>
+      <h1 id="buttonHobbies" class="jockey">About me</h1></div>
 
     <div v-if="!isLoading && !isGame && screenToShow && screenToShow == 5">
 
@@ -417,5 +417,48 @@ body {
     left: 60%;
     width: 400px;
   }
+}
+
+@media (max-width: 600px) {
+  #title {
+    font-size: 2.5rem;
+        top: 65%;
+        left: 16%;
+        width: 382px;
+    
+  }
+  #container {
+    position: absolute;
+    top: -54px;
+    left: 97px;
+}
+#buttonCV {
+  writing-mode: vertical-rl;
+  position: absolute;
+  z-index: 11;
+  top: 29%;
+  left: 11%;
+}
+#buttonProjects {
+  writing-mode: vertical-rl;
+  position: absolute;
+  z-index: 11;
+  top: 21%;
+  left: 45%;
+}
+#buttonHobbies {
+  writing-mode: vertical-rl;
+  position: absolute;
+  z-index: 11;
+  top: 20%;
+  left: 61%;
+}
+#buttonStudies {
+  writing-mode: vertical-rl;
+  position: absolute;
+  z-index: 11;
+  top: 22%;
+  left: 27.5%;
+}
 }
 </style>
