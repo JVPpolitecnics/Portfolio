@@ -6,18 +6,18 @@
 
             <defs>
                 <linearGradient id="fillGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style="stop-color:#28104E;" />
-                    <stop offset="33%" style="stop-color:#9754CB;" />
-                    <stop offset="100%" style="stop-color:#DEACF5;" />
+                    <stop offset="0%" style="stop-color:#5463E7;" />
+                    <stop offset="33%" style="stop-color:#2137F9;" />
+                    <stop offset="100%" style="stop-color:#26A3CC;" />
                 </linearGradient>
             </defs>
         
             <!-- Define a linear gradient for the stroke -->
             <defs>
                 <linearGradient id="strokeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style="stop-color:#28104E;" />
-                    <stop offset="33%" style="stop-color:#9754CB;" />
-                    <stop offset="100%" style="stop-color:#DEACF5;" />
+                    <stop offset="0%" style="stop-color:#5463E7;" />
+                    <stop offset="33%" style="stop-color:#2137F9;" />
+                    <stop offset="100%" style="stop-color:#26A3CC;" />
                 </linearGradient>
             </defs>
 
