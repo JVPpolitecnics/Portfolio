@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         
-        <svg height="800px" width="800px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+        <svg height="180px" width="180px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 259.104 259.104" xml:space="preserve">
 
             <defs>
@@ -62,11 +62,14 @@ export default {
 <style scoped>
 
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 100vh;
     background-color: #14151F;
+}
+
+svg {
+position: absolute;
+top: 38%;
+    left: 43%;
 }
 
 
@@ -75,13 +78,17 @@ export default {
     svg {
     height: 10em;
     width: 20em;
+    top: 38%;
+    left: 5%;
     }
 }
 
 @media only screen and (max-width: 900px) {
     svg {
-    height: 10em;
-    width: 20em;
+    height: 5em;
+    width: 10em;
+    top: 38%;
+    left: 5%;
     }
 }
 
