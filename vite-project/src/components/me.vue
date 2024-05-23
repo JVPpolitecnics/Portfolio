@@ -5,17 +5,25 @@
         <h1 class="col-md-4 jockey text-center">Hi I'm Jack</h1>
         <div ref="sceneContainer" class="scene-container"></div>
     </div>
-    
-    
+
+
 
     <div class="row">
         <div class="col-md-3"></div>
-<p class="col-12 col-md-6 txt noto">I'm a multilingual Junior Web Developer, and Visual Artist, with an Art Masters in a French leading institution, which gave me the opportunity to travel around the world and master French as a foreign language.
-I'm currently carrying out my web-dev studies in a vocational school based in my hometown, Barcelona.
-I was born in a bilingual family my father being from the UK and my mother from Barcelona. I believe that this gives me a competitive edge when it comes to learning, whilst also giving me great adaptability in multicultural work environments.
-I'm passionate about culture, arts, tech, problem-solving, and environmentally friendly businesses. I also enjoy the guilty pleasure of eating, and thereby cooking.
-I am currently seeking a job in full-stacks developpement. Please do not hesitate to contact me.</p>
+        <p class="col-12 col-md-6 txt noto">I'm a multilingual Junior Web Developer, and Visual Artist, with an Art
+            Masters in a French leading institution, which gave me the opportunity to travel around the world and master
+            French as a foreign language.
+            I'm currently carrying out my web-dev studies in a vocational school based in my hometown, Barcelona.
+            I was born in a bilingual family my father being from the UK and my mother from Barcelona. I believe that
+            this gives me a competitive edge when it comes to learning, whilst also giving me great adaptability in
+            multicultural work environments.
+            I'm passionate about culture, arts, tech, problem-solving, and environmentally friendly businesses. I also
+            enjoy the guilty pleasure of eating, and thereby cooking.
+            I am currently seeking a job in full-stacks developpement. Please do not hesitate to contact me.</p>
     </div>
+    
+           
+      
 </template>
 
 <script>
@@ -94,45 +102,51 @@ export default {
 </script>
 
 <style scoped>
-.txt{
+.txt {
     position: absolute;
     top: 65%;
     left: 26%;
 }
+.linkedin{
+    position: absolute;
+    top: 90%;
+    left: 41%;
+}
 .noto {
-  font-family: 'Noto', sans-serif;
-  font-size: 16px;
-  color: #EBEBD3;
-  text-align: justify;
+    font-family: 'Noto', sans-serif;
+    font-size: 16px;
+    color: #EBEBD3;
+    text-align: justify;
 }
 
 .jockey {
-  font-family: 'Jockey', sans-serif;
-  font-weight: 600;
-  color: #EBEBD3;
+    font-family: 'Jockey', sans-serif;
+    font-weight: 600;
+    color: #EBEBD3;
 }
 
 @font-face {
-  font-family: 'Jockey';
-  src: url('assets/JockeyOne-Regular.ttf') format('ttf'),
-    /* Modern Browsers */
-    url('assets/JockeyOne-Regular.ttf') format('ttf');
-  /* Legacy Browsers */
-  /* Optionally, you can specify font-weight and font-style */
-  font-weight: normal;
-  font-style: normal;
+    font-family: 'Jockey';
+    src: url('assets/JockeyOne-Regular.ttf') format('ttf'),
+        /* Modern Browsers */
+        url('assets/JockeyOne-Regular.ttf') format('ttf');
+    /* Legacy Browsers */
+    /* Optionally, you can specify font-weight and font-style */
+    font-weight: normal;
+    font-style: normal;
 }
 
 @font-face {
-  font-family: 'Noto';
-  src: url('assets/NotoSans-Regular.ttf') format('ttf'),
-    /* Modern Browsers */
-    url('assets/NotoSans-Regular.ttf') format('ttf');
-  /* Legacy Browsers */
-  /* Optionally, you can specify font-weight and font-style */
-  font-weight: normal;
-  font-style: normal;
+    font-family: 'Noto';
+    src: url('assets/NotoSans-Regular.ttf') format('ttf'),
+        /* Modern Browsers */
+        url('assets/NotoSans-Regular.ttf') format('ttf');
+    /* Legacy Browsers */
+    /* Optionally, you can specify font-weight and font-style */
+    font-weight: normal;
+    font-style: normal;
 }
+
 .scene-container {
     width: 100vw;
     height: 100vh;
@@ -141,10 +155,15 @@ export default {
 }
 
 @media (max-width: 600px) {
-    .txt{
+    .txt {
+        position: absolute;
+        top: 72%;
+        left: 0%;
+    }
+    .linkedin{
     position: absolute;
-    top: 72%;
-    left: 0%;
+    top: 90%;
+    left: 41%;
 }
 }
 </style>
