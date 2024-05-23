@@ -7,11 +7,11 @@
         </div>
 
         <div class="row">
-            <div class="col-4"></div>
+            <div class="col-0 col-md-4"></div>
             <div class="col-md-2 text-center mt-2">
                 <img src="/cv/bridgestone.png" alt="Bridgestone Logo" class="img-fluid  mb-4">
             </div>
-            <div class="col-md-6 noto">
+            <div class="col-12 col-md-6 noto">
                 <p>Software Developer Internship at Bridgestone Mobility Solutions - Part-time Sept 2023 / Feb 2024
                     During this internship I have had the opportunity of getting hands on experience and further
                     expanding my skills base.
@@ -19,11 +19,11 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-4"></div>
+            <div class="col-0 col-md-4"></div>
             <div class="col-md-2 text-center mt-2">
                 <img src="/cv/intelcia.png" alt="Bridgestone Logo" class="img-fluid mb-4">
             </div>
-            <div class="col-md-6 noto">
+            <div class="col-12 col-md-6 noto">
                 <p>Customer Success Agent for Ledger - Part-time Apr 2022 / Jul 2022
                     IT support and customer care agent for Ledger, a French multinational hardware cryptowallet company.
                     Working with English and French speaking markets
@@ -31,11 +31,11 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-4"></div>
+            <div class="col-0 col-md-4"></div>
             <div class="col-md-2 text-center mt-2">
                 <img src="/cv/intelcia.png" alt="Bridgestone Logo" class="img-fluid mb-4">
             </div>
-            <div class="col-md-6 noto">
+            <div class="col-12 col-md-6 noto">
                 <p>Hostal Apolo - Full time Apr 2022 / Jul 2022
                     Hostel receptionist, in wich I took care of bookings, client facing tasks as well as police reports
                     and others day to day tasks. In essence I attended the functionning of the business during my work
@@ -44,7 +44,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-4"></div>
+            <div class="col-0 col-md-4"></div>
             <div class="col-md-2 text-center mt-2">
                 <img src="/cv/intercruises.png" alt="Bridgestone Logo" class="img-fluid mb-4">
             </div>

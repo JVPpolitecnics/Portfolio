@@ -1,16 +1,16 @@
 <template>
     <div class="container mt-5">
         <div class="row">
-            <div class="col-4"></div>
+            <div class="col-4 col-md-6"></div>
             <h1 class="col-4 mb-5 text-center jockey">Projects</h1>
             <div class="col-4"></div>
         </div>
         <div class="row">
 
-            <div class="col-3">
+            <div class="col-5">
 
             </div>
-            <div id="carouselExampleCaptions" class="carousel slide col-12 col-md-6">
+            <div id="carouselExampleCaptions" class="carousel slide col-12 col-md-6 text-center">
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
                         aria-current="true" aria-label="Slide 1"></button>

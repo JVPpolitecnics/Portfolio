@@ -1,6 +1,8 @@
 <template>
   <div>
+    <div class="initial">
     <vid v-if="!stopVideo && isVideo" @play-game="handlePlayGame"></vid>
+  </div>
     <loading v-if="isLoading"></loading>
 
     <div v-show="isGame && !isVideo">
@@ -19,7 +21,7 @@
         </svg>
       </div>
 
-      <h5 id="title" class="jockey">Jack Vickery Pérez the Web Developper</h5>
+      <h5 id="title" class="jockey">Jack Vickery Pérez the Web Developer</h5>
 
 
       <!-- <div id="outsideContainer"
@@ -38,13 +40,17 @@
     <div
       v-if="!isLoading && !isGame && screenToShow && screenToShow == 'projects' && !particullarProject && particullarProject != 0">
       <images v-if="false" style="display: none;"></images>
-      <div class="home" @click="handleHomeButton">
-        <svg class="home" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <div class="home" @click="handleHomeButton" style="cursor: pointer;">
+        <svg width="24px" height="24px" viewBox="0 0 24 24" fill="#14151f" xmlns="http://www.w3.org/2000/svg">
           <path d="M3 8.99999L12 2L21 8.99999V21H3V8.99999Z" stroke="#EBEBD3" stroke-width="1.5"
             stroke-linecap="round" />
         </svg>
       </div>
-      <projects class="col-12 full" @show-bento="handleParituclarProject"></projects>
+      <div class="initial">
+
+
+        <projects class="col-12 full" @show-bento="handleParituclarProject"></projects>
+      </div>
     </div>
     <div v-if="!isLoading && !isGame && screenToShow && screenToShow == 'projects'" class="initial">
 
@@ -53,12 +59,13 @@
 
 
       <div v-if="particullarProject != null">
-        <div class="home" @click="handleHomeButton">
-          <svg class="home" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <div class="home" @click="handleHomeButton" style="cursor: pointer;">
+          <svg width="24px" height="24px" viewBox="0 0 24 24" fill="#14151f" xmlns="http://www.w3.org/2000/svg">
             <path d="M3 8.99999L12 2L21 8.99999V21H3V8.99999Z" stroke="#EBEBD3" stroke-width="1.5"
               stroke-linecap="round" />
           </svg>
         </div>
+
 
         <bento class="full" style="margin-bottom: 2%;" :imgPath="mainImages[particullarProject]"
           :imgLogo="logos[particullarProject]" :detail="highlightImg[particullarProject]"
@@ -77,23 +84,25 @@
     </div>
 
     <div v-if="!isLoading && !isGame && screenToShow == 'cv'">
-      <div class="home" @click="handleHomeButton">
-        <svg class="home" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <div class="home" @click="handleHomeButton" style="cursor: pointer;">
+        <svg width="24px" height="24px" viewBox="0 0 24 24" fill="#14151f" xmlns="http://www.w3.org/2000/svg">
           <path d="M3 8.99999L12 2L21 8.99999V21H3V8.99999Z" stroke="#EBEBD3" stroke-width="1.5"
             stroke-linecap="round" />
         </svg>
       </div>
+
       <div class="initial">
         <cv class="col-12 full  text-center"></cv>
       </div>
     </div>
     <div v-if="!isLoading && !isGame && screenToShow == 'studies'">
-      <div class="home" @click="handleHomeButton">
-        <svg class="home" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <div class="home" @click="handleHomeButton" style="cursor: pointer;">
+        <svg width="24px" height="24px" viewBox="0 0 24 24" fill="#14151f" xmlns="http://www.w3.org/2000/svg">
           <path d="M3 8.99999L12 2L21 8.99999V21H3V8.99999Z" stroke="#EBEBD3" stroke-width="1.5"
             stroke-linecap="round" />
         </svg>
       </div>
+
       <div class="initial">
         <studies class="col-12 full  text-center"></studies>
       </div>
@@ -432,6 +441,9 @@ body {
   position: absolute;
   top: 15px;
   left: 90%;
+  height: 40px;
+  width: 40px;
+  z-index: 40;
 
 }
 
@@ -510,8 +522,8 @@ body {
 @media (max-width: 600px) {
   #title {
     font-size: 2.5rem;
-    top: 65%;
-    left: 16%;
+    top: 78%;
+    left: 5%;
     width: 382px;
 
   }
@@ -519,7 +531,75 @@ body {
   #container {
     position: absolute;
     top: -54px;
-    left: 97px;
+    left: 43px;
+  }
+
+  .info {
+    position: absolute;
+    top: 3%;
+    left: 81%;
+    z-index: 22;
+  }
+
+  #buttonCV {
+    writing-mode: vertical-rl;
+    position: absolute;
+    z-index: 11;
+    top: 29%;
+    left: 11%;
+  }
+
+  #buttonProjects {
+    writing-mode: vertical-rl;
+    position: absolute;
+    z-index: 11;
+    top: 21%;
+    left: 45%;
+  }
+
+  #buttonHobbies {
+    writing-mode: vertical-rl;
+    position: absolute;
+    z-index: 11;
+    top: 20%;
+    left: 61%;
+  }
+
+  #buttonStudies {
+    writing-mode: vertical-rl;
+    position: absolute;
+    z-index: 11;
+    top: 22%;
+    left: 27.5%;
+  }
+
+  .home {
+    position: absolute;
+    top: 15px;
+    left: 78%;
+  }
+}
+
+@media (max-width: 400px) {
+  #title {
+    font-size: 1.5rem;
+    top: 86%;
+    left: 0%;
+    width: 376px;
+
+  }
+
+  #container {
+    position: absolute;
+    top: -108px;
+    left: 26px;
+  }
+
+  .info {
+    position: absolute;
+    top: 3%;
+    left: 88%;
+    z-index: 22;
   }
 
   #buttonCV {

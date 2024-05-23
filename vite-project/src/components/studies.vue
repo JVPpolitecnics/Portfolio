@@ -14,7 +14,7 @@
             <div class="col-md-6 noto">
                 <p>Centre d’Estudis Politècnics - Desarollo Aplicaciones Web (Web Development) - Full time
                     These are my formal Web Development studies carried out in a trade school in Barcelona
-                    Java · JavaScript · MySQL · Scrum · Git · PHP · Laravel · View</p>
+                    Java · JavaScript · MySQL · Scrum · Git · PHP · Laravel · Vue.js</p>
             </div>
         </div>
         <div class="row">

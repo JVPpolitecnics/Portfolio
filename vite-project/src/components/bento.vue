@@ -81,14 +81,12 @@
 
       <!-- Two half-width blocks -->
       <div class="row">
-        <div class="col-md-12 ">
-          <div class="row">
+        
 
-            <img class="col-6 p-5 bento img-fluid round" :src="imgLogo" alt="LOGO">
-            <img class="col-6  p-5 bento img-fluid round" :src="detail" alt="IMAGE">
+            <img class="col-12 col-md-6 p-5 bento img-fluid round" :src="imgLogo" alt="LOGO">
+            <img class="col-12 col-md-6  p-5 bento img-fluid round" :src="detail" alt="IMAGE">
 
-          </div>
-        </div>
+          
 
       </div>
       <!-- Bottom full-width block -->
