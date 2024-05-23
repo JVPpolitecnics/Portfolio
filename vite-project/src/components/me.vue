@@ -31,6 +31,7 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
+
 export default {
     mounted() {
         this.initThreeJS();
@@ -60,7 +61,8 @@ export default {
 
             // Set up GLTF loader
             const loader = new GLTFLoader();
-            loader.load('/assets/3d.glb', (gltf) => {
+           
+            loader.load('src/assets/3d.glb', (gltf) => {
                 const model = gltf.scene;
                 model.scale.set(2.5, 2.5, 2.5); // Adjust scale to make the model bigger
                 scene.add(model);
