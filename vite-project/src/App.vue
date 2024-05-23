@@ -95,6 +95,18 @@
         <cv class="col-12 full  text-center"></cv>
       </div>
     </div>
+    <div v-if="!isLoading && !isGame && screenToShow == 'me'">
+      <div class="home" @click="handleHomeButton" style="cursor: pointer;">
+        <svg width="24px" height="24px" viewBox="0 0 24 24" fill="#14151f" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 8.99999L12 2L21 8.99999V21H3V8.99999Z" stroke="#EBEBD3" stroke-width="1.5"
+            stroke-linecap="round" />
+        </svg>
+      </div>
+      <div class="initial">
+        <me></me>
+      </div>
+      
+    </div>
     <div v-if="!isLoading && !isGame && screenToShow == 'studies'">
       <div class="home" @click="handleHomeButton" style="cursor: pointer;">
         <svg width="24px" height="24px" viewBox="0 0 24 24" fill="#14151f" xmlns="http://www.w3.org/2000/svg">
@@ -124,6 +136,7 @@ import cv from './components/cv.vue'
 import projects from './components/projects.vue';
 import studies from './components/studies.vue';
 import images from './components/images.vue';
+import me from './components/me.vue';
 
 export default {
   created() {
@@ -165,7 +178,8 @@ export default {
     cv,
     projects,
     studies,
-    images
+    images,
+    me
   },
   methods: {
     playVideo() {
